@@ -10,7 +10,7 @@ import toast  from 'react-hot-toast'
 const App = () => {
   return (
     <>
-    <button onClick={()=>toast.error("error")} className='text-red-500' >click again</button>
+    {/* <button onClick={()=>toast.error("error")} className='text-red-500' >click again</button> */}
        <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/create' element={<CreatePage/>}/>
