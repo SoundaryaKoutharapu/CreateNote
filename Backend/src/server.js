@@ -2,9 +2,17 @@ import express from "express"
 import route from "./Routes/noteRoutes.js";
 import { connectDB } from "./config/db.js";
 import dotenv from 'dotenv'
+import rateLimiter from "./middlewares/rateLimiter.js";
 
 const app = express();
-app.use(express.json());
+app.use(express.json());  //middleware
+app.use(rateLimiter);
+
+// app.use((req,res,next)=>
+// {
+//     console.log("we got a new req" +req.url, +req.method);
+//     next();
+// })
 
 app.use('/api/notes', route)
 

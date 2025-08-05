@@ -3,7 +3,7 @@ import Note from "../model/Note.js"
 export const getAllRoutes = async (req,res)=>
 {
     try {
-        const notes = await Note.find()
+    const notes = await Note.find().sort({ createdAt: 1 });
         res.status(200).json(notes)
         
     } catch (error) {
