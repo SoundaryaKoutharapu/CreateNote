@@ -3,6 +3,7 @@ import {Ratelimit} from "@upstash/ratelimit"
 
 import dotenv from "dotenv";
 
+
 dotenv.config();
 
 const ratelimit = new Ratelimit({
@@ -10,4 +11,5 @@ const ratelimit = new Ratelimit({
     limiter: Ratelimit.slidingWindow(5, "20 s")
 })
 
+    
 export default ratelimit;

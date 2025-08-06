@@ -1,5 +1,6 @@
 import ratelimit from "../config/upstash.js";
 
+
 const rateLimiter =  async (req,res,next)=>
 {
     try {
@@ -8,8 +9,8 @@ const rateLimiter =  async (req,res,next)=>
         if(!success)
         {
             res.status(429).json({message: "too many requests"})
-            next();
         }
+        next();
     } catch (error) {
         console.log(error);
         next();
