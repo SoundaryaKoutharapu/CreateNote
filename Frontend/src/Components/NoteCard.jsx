@@ -1,0 +1,28 @@
+import { PenSquareIcon } from "lucide-react"
+import { Link } from "react-router"
+import { Trash2Icon } from "lucide-react"
+import {formatDate} from '../lib/utils'
+
+const NoteCard = ({note}) => {
+  return (
+    <Link to={`/note/${note._id}`}
+    className="card bg-base-100 hover:shadow-lg transition-all duration-200">
+        <div className="card-body">
+            <h3 className="card-title text-base-content">{note.title}</h3>
+            <p className="text-base-content/7 line-cl">{note.content}</p>
+            <div className="card-actions justify-between items-center">
+                <span className="text-sm text-base-content/60">
+                   {formatDate(new Date(note?.createdAt))}
+                </span>
+                <div className="flex items-center gap-1">
+                    <PenSquareIcon className="size-4"/>
+                    <button className="btn btn-ghost btn-xs text-error">
+                        <Trash2Icon className='size-4'></Trash2Icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </Link>
+  )
+}
+export default NoteCard
